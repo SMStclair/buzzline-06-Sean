@@ -109,7 +109,7 @@ matplotlib
 seaborn
 
 # Interactive plotting library, often used with Shiny apps (~20-25 MB)
-#plotly
+plotly
 
 # ======================================================
 # GUI BACKEND FOR MATPLOTLIB ANIMATIONS (macOS/Linux only)
@@ -125,6 +125,13 @@ PyQt6; sys_platform != "win32"
 # Apache Kafka Python client (six was removed so add it separately)
 kafka-python
 six
+
+# ======================================================
+# Extras
+# ======================================================
+utils
+
+
 
 # Alternative: pin the older version.
 # If you want to use the older version of kafka-python,
