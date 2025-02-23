@@ -4,7 +4,9 @@ import pathlib
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
+from collections import defaultdict
 
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from kafka import KafkaConsumer
 import utils.utils_config as config
 from utils.utils_consumer import create_kafka_consumer
@@ -14,7 +16,7 @@ from utils.utils_producer import verify_services, is_topic_available
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # Function to process a single message
-def process_message(message: dict) -> None:
+def process_message(message: dict) -> dict:
     """
     Process and transform a single JSON message.
     Converts message fields to appropriate data types.
@@ -36,34 +38,49 @@ def process_message(message: dict) -> None:
         return None
 
 # Function to update and calculate the average review scores
-def update_genre_scores(genre_scores, message):
+def update_genre_scores(genre_scores, genre_counts, message):
     """
     Update the genre_scores dictionary with the new review score for the given genre.
-    Calculate average scores after all messages have been processed.
+    Also updates the genre_counts dictionary to track message count per genre.
     """
     genre = message.get("category")
     score = message.get("review_score")
 
+    # Update average review scores
     if genre not in genre_scores:
         genre_scores[genre] = {"total_score": 0, "count": 0}
-    
     genre_scores[genre]["total_score"] += score
     genre_scores[genre]["count"] += 1
 
-# Function to plot the bar chart of average review scores
-def plot_average_scores(genre_scores):
+    # Track message counts for pie chart
+    genre_counts[genre] += 1
+
+# Function to plot the bar chart of average review scores + inset pie chart
+def plot_average_scores(genre_scores, genre_counts):
     """
     Plot a bar chart showing the average review scores for each genre.
+    Also adds a pie chart inset to show the proportion of messages per genre.
     """
     genres = list(genre_scores.keys())
     average_scores = [data["total_score"] / data["count"] for data in genre_scores.values()]
 
     plt.clf()  # Clear the current figure
-    plt.bar(genres, average_scores, color=plt.cm.plasma(np.linspace(0, 1, len(genres))))
-    plt.xlabel('Genres')
-    plt.ylabel('Average Review Score')
-    plt.title('Average Review Scores by Genre')
-    plt.xticks(rotation=45)
+
+    # Bar Chart: Average Review Scores
+    ax1 = plt.gca()
+    ax1.bar(genres, average_scores, color=plt.cm.plasma(np.linspace(0, 1, len(genres))))
+    ax1.set_xlabel('Genres')
+    ax1.set_ylabel('Average Review Score')
+    ax1.set_title('Average Review Scores by Genre')
+    ax1.set_xticklabels(genres, rotation=45, ha="right")
+
+    # Pie Chart: Message Distribution by Genre
+    if genre_counts:
+        ax_inset = inset_axes(ax1, width="30%", height="30%", loc="upper right")
+        sizes = [count / sum(genre_counts.values()) * 100 for count in genre_counts.values()]
+        ax_inset.pie(sizes, labels=genre_counts.keys(), autopct='%1.1f%%', startangle=140)
+        ax_inset.set_title("Genre % Distribution", fontsize=8)
+
     plt.tight_layout()
     plt.draw()  # Redraw the plot
     plt.pause(0.1)  # Pause to update the plot (without blocking the loop)
@@ -126,18 +143,19 @@ def consume_messages_from_kafka(
         logger.error("ERROR: Consumer is None. Exiting.")
         sys.exit(13)
 
-    genre_scores = {}  # Dictionary to store total score and count for each genre
+    genre_scores = {}  # Store total score and count for each genre
+    genre_counts = defaultdict(int)  # Store message count per genre
 
     # Enable interactive mode for matplotlib
     plt.ion()  # Turn on interactive mode
-    plt.figure()  # Create a new figure
+    plt.figure(figsize=(10, 5))  # Create a new figure
 
     try:
         for message in consumer:
             processed_message = process_message(message.value)
             if processed_message:
-                update_genre_scores(genre_scores, processed_message)
-                plot_average_scores(genre_scores)  # Update the plot after each message
+                update_genre_scores(genre_scores, genre_counts, processed_message)
+                plot_average_scores(genre_scores, genre_counts)  # Update plot with bar + pie chart
 
             plt.pause(0.1)  # Pause to allow the plot to update
 
