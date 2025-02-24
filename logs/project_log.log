@@ -3901,3 +3901,439 @@
 2025-02-23 17:29:54.020 | INFO     | __main__:process_message:27 - Called process_message() with:
 2025-02-23 17:29:54.021 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 95.", 'timestamp': '2025-02-23 17:28:52', 'category': 'RPG', 'Review Score': 95, 'keyword_mentioned': 'R', 'message_length': 52}
 2025-02-23 17:29:54.022 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 95}
+2025-02-23 20:15:17.228 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-23 20:15:17.231 | INFO     | __main__:main:76 - Starting Producer to run continuously.
+2025-02-23 20:15:17.231 | INFO     | __main__:main:77 - Things can fail or get interrupted, so use a try block.
+2025-02-23 20:15:17.232 | INFO     | __main__:main:78 - Moved .env variables into a utils config module.
+2025-02-23 20:15:17.232 | INFO     | __main__:main:80 - STEP 1. Read required environment variables.
+2025-02-23 20:15:17.232 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-23 20:15:17.232 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline_json
+2025-02-23 20:15:17.232 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:17.232 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\jstcl\OneDrive\Desktop\Sean school stuff personal\Streaming Data\Module 6\buzzline-06-Sean\data
+2025-02-23 20:15:17.232 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\jstcl\OneDrive\Desktop\Sean school stuff personal\Streaming Data\Module 6\buzzline-06-Sean\data\project_live.json
+2025-02-23 20:15:17.232 | INFO     | __main__:main:91 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-23 20:15:17.233 | INFO     | __main__:main:96 - Deleted existing live data file.
+2025-02-23 20:15:17.233 | INFO     | __main__:main:98 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-23 20:15:17.233 | INFO     | __main__:main:104 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-23 20:15:17.233 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: localhost:2181
+2025-02-23 20:15:17.238 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at localhost:2181.
+2025-02-23 20:15:17.239 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:17.570 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'DaUT19dfR-2HKN7nGOOfHw', 'controller_id': 1001}
+2025-02-23 20:15:17.676 | INFO     | __main__:main:113 - Kafka producer connected to localhost:9092
+2025-02-23 20:15:17.676 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:18.000 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline_json' exists. Clearing it out...
+2025-02-23 20:15:18.000 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:18.385 | ERROR    | utils.utils_producer:clear_kafka_topic:225 - Error managing retention for topic 'buzzline_json': list indices must be integers or slices, not ConfigResource
+2025-02-23 20:15:18.386 | INFO     | __main__:main:121 - Kafka topic 'buzzline_json' is ready.
+2025-02-23 20:15:18.388 | INFO     | __main__:main:126 - STEP 5. Generate messages continuously.
+2025-02-23 20:15:18.388 | INFO     | __main__:main:129 - {'message': "I just played a RPG game! I'd give it a score of 66.", 'timestamp': '2025-02-23 20:15:18', 'category': 'RPG', 'Review Score': 66, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:18.390 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a RPG game! I'd give it a score of 66.", 'timestamp': '2025-02-23 20:15:18', 'category': 'RPG', 'Review Score': 66, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:18.392 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a RPG game! I'd give it a score of 66.", 'timestamp': '2025-02-23 20:15:18', 'category': 'RPG', 'Review Score': 66, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:23.394 | INFO     | __main__:main:129 - {'message': "I just played a MMO game! I'd give it a score of 55.", 'timestamp': '2025-02-23 20:15:23', 'category': 'MMO', 'Review Score': 55, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:23.395 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a MMO game! I'd give it a score of 55.", 'timestamp': '2025-02-23 20:15:23', 'category': 'MMO', 'Review Score': 55, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:23.395 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a MMO game! I'd give it a score of 55.", 'timestamp': '2025-02-23 20:15:23', 'category': 'MMO', 'Review Score': 55, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:28.397 | INFO     | __main__:main:129 - {'message': "I just played a Roguelike game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:28', 'category': 'Roguelike', 'Review Score': 72, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:28.398 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Roguelike game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:28', 'category': 'Roguelike', 'Review Score': 72, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:28.399 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Roguelike game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:28', 'category': 'Roguelike', 'Review Score': 72, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:29.039 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-23 20:15:29.043 | INFO     | __main__:main:176 - Starting Consumer to run continuously.
+2025-02-23 20:15:29.043 | INFO     | __main__:main:177 - Things can fail or get interrupted, so use a try block.
+2025-02-23 20:15:29.043 | INFO     | __main__:main:178 - Moved .env variables into a utils config module.
+2025-02-23 20:15:29.043 | INFO     | __main__:main:180 - STEP 1. Read environment variables using new config functions.
+2025-02-23 20:15:29.043 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline_json
+2025-02-23 20:15:29.043 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:29.043 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-23 20:15:29.043 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-23 20:15:29.043 | INFO     | __main__:main:186 - SUCCESS: Read environment variables.
+2025-02-23 20:15:29.043 | INFO     | __main__:main:191 - STEP 4. Begin consuming messages.
+2025-02-23 20:15:29.043 | INFO     | __main__:consume_messages_from_kafka:105 - Called consume_messages_from_kafka() with:
+2025-02-23 20:15:29.043 | INFO     | __main__:consume_messages_from_kafka:106 -    topic='buzzline_json'
+2025-02-23 20:15:29.043 | INFO     | __main__:consume_messages_from_kafka:107 -    kafka_url='localhost:9092'
+2025-02-23 20:15:29.044 | INFO     | __main__:consume_messages_from_kafka:108 -    group='buzz_group'
+2025-02-23 20:15:29.044 | INFO     | __main__:consume_messages_from_kafka:109 -    interval_secs=5
+2025-02-23 20:15:29.044 | INFO     | __main__:consume_messages_from_kafka:111 - Step 1. Verify Kafka Services.
+2025-02-23 20:15:29.044 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: localhost:2181
+2025-02-23 20:15:29.048 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at localhost:2181.
+2025-02-23 20:15:29.048 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:29.376 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'DaUT19dfR-2HKN7nGOOfHw', 'controller_id': 1001}
+2025-02-23 20:15:29.377 | INFO     | __main__:consume_messages_from_kafka:118 - Step 2. Create a Kafka consumer.
+2025-02-23 20:15:29.378 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:29.378 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline_json' and group ID='buzz_group'.
+2025-02-23 20:15:29.486 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-23 20:15:29.487 | INFO     | __main__:consume_messages_from_kafka:129 - Step 3. Verify topic exists.
+2025-02-23 20:15:29.487 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: localhost:9092
+2025-02-23 20:15:29.811 | INFO     | utils.utils_producer:is_topic_available:251 - Topic 'buzzline_json' already exists. 
+2025-02-23 20:15:29.811 | INFO     | __main__:consume_messages_from_kafka:133 - Kafka topic 'buzzline_json' is ready.
+2025-02-23 20:15:29.812 | INFO     | __main__:consume_messages_from_kafka:140 - Step 4. Process messages.
+2025-02-23 20:15:31.816 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:31.816 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 80.", 'timestamp': '2025-02-23 17:21:06', 'category': 'Horror', 'Review Score': 80, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:31.817 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 80}
+2025-02-23 20:15:32.124 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:32.125 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 99.", 'timestamp': '2025-02-23 17:21:11', 'category': 'Horror', 'Review Score': 99, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:32.126 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 99}
+2025-02-23 20:15:32.375 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:32.376 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 58.", 'timestamp': '2025-02-23 17:21:16', 'category': 'Strategy', 'Review Score': 58, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:32.377 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 58}
+2025-02-23 20:15:32.640 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:32.641 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 62.", 'timestamp': '2025-02-23 17:21:21', 'category': 'Roguelike', 'Review Score': 62, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:32.642 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 62}
+2025-02-23 20:15:32.905 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:32.906 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 72.", 'timestamp': '2025-02-23 17:21:26', 'category': 'Mobile', 'Review Score': 72, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:32.908 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 72}
+2025-02-23 20:15:33.171 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:33.172 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 58.", 'timestamp': '2025-02-23 17:21:31', 'category': 'Platformer', 'Review Score': 58, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:33.173 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 58}
+2025-02-23 20:15:33.400 | INFO     | __main__:main:129 - {'message': "I just played a Mobile game! I'd give it a score of 88.", 'timestamp': '2025-02-23 20:15:33', 'category': 'Mobile', 'Review Score': 88, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:33.403 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Mobile game! I'd give it a score of 88.", 'timestamp': '2025-02-23 20:15:33', 'category': 'Mobile', 'Review Score': 88, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:33.406 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Mobile game! I'd give it a score of 88.", 'timestamp': '2025-02-23 20:15:33', 'category': 'Mobile', 'Review Score': 88, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:33.435 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:33.436 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 63.", 'timestamp': '2025-02-23 17:21:36', 'category': 'Action', 'Review Score': 63, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:33.436 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 63}
+2025-02-23 20:15:33.701 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:33.702 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 56.", 'timestamp': '2025-02-23 17:21:41', 'category': 'Horror', 'Review Score': 56, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:33.702 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 56}
+2025-02-23 20:15:33.965 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:33.965 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:21:46', 'category': 'RPG', 'Review Score': 91, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:33.966 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 91}
+2025-02-23 20:15:34.232 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:34.233 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 64.", 'timestamp': '2025-02-23 17:21:51', 'category': 'MMO', 'Review Score': 64, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:34.234 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 64}
+2025-02-23 20:15:34.531 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:34.533 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 88.", 'timestamp': '2025-02-23 17:21:56', 'category': 'Platformer', 'Review Score': 88, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:34.534 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 88}
+2025-02-23 20:15:34.797 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:34.797 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 87.", 'timestamp': '2025-02-23 17:22:01', 'category': 'RPG', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:34.799 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 87}
+2025-02-23 20:15:35.077 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:35.078 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 66.", 'timestamp': '2025-02-23 17:22:06', 'category': 'Sports', 'Review Score': 66, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:35.079 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 66}
+2025-02-23 20:15:35.345 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:35.346 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 99.", 'timestamp': '2025-02-23 17:22:11', 'category': 'Action', 'Review Score': 99, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:35.347 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 99}
+2025-02-23 20:15:35.609 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:35.610 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 80.", 'timestamp': '2025-02-23 17:22:16', 'category': 'Roguelike', 'Review Score': 80, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:35.611 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 80}
+2025-02-23 20:15:35.874 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:35.875 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 97.", 'timestamp': '2025-02-23 17:22:21', 'category': 'MMO', 'Review Score': 97, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:35.876 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 97}
+2025-02-23 20:15:36.138 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:36.139 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 89.", 'timestamp': '2025-02-23 17:22:26', 'category': 'Sports', 'Review Score': 89, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:36.140 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 89}
+2025-02-23 20:15:36.406 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:36.407 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 96.", 'timestamp': '2025-02-23 17:22:31', 'category': 'Strategy', 'Review Score': 96, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:36.408 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 96}
+2025-02-23 20:15:36.671 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:36.673 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 99.", 'timestamp': '2025-02-23 17:22:36', 'category': 'Sports', 'Review Score': 99, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:36.675 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 99}
+2025-02-23 20:15:36.937 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:36.938 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 17:22:41', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:36.939 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 76}
+2025-02-23 20:15:37.203 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:37.204 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 68.", 'timestamp': '2025-02-23 17:22:46', 'category': 'Platformer', 'Review Score': 68, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:37.206 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 68}
+2025-02-23 20:15:37.469 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:37.470 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 67.", 'timestamp': '2025-02-23 17:22:51', 'category': 'Action', 'Review Score': 67, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:37.472 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 67}
+2025-02-23 20:15:37.735 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:37.736 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 92.", 'timestamp': '2025-02-23 17:22:56', 'category': 'Platformer', 'Review Score': 92, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:37.738 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 92}
+2025-02-23 20:15:38.001 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:38.003 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 63.", 'timestamp': '2025-02-23 17:23:01', 'category': 'MMO', 'Review Score': 63, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:38.004 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 63}
+2025-02-23 20:15:38.296 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:38.298 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 58.", 'timestamp': '2025-02-23 17:23:06', 'category': 'FPS', 'Review Score': 58, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:38.299 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 58}
+2025-02-23 20:15:38.408 | INFO     | __main__:main:129 - {'message': "I just played a Action game! I'd give it a score of 95.", 'timestamp': '2025-02-23 20:15:38', 'category': 'Action', 'Review Score': 95, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:38.409 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Action game! I'd give it a score of 95.", 'timestamp': '2025-02-23 20:15:38', 'category': 'Action', 'Review Score': 95, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:38.410 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Action game! I'd give it a score of 95.", 'timestamp': '2025-02-23 20:15:38', 'category': 'Action', 'Review Score': 95, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:38.560 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:38.561 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 77.", 'timestamp': '2025-02-23 17:23:11', 'category': 'Platformer', 'Review Score': 77, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:38.562 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 77}
+2025-02-23 20:15:38.826 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:38.828 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 50.", 'timestamp': '2025-02-23 17:23:16', 'category': 'Horror', 'Review Score': 50, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:38.829 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 50}
+2025-02-23 20:15:39.094 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:39.095 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 96.", 'timestamp': '2025-02-23 17:23:21', 'category': 'RPG', 'Review Score': 96, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:39.097 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 96}
+2025-02-23 20:15:39.360 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:39.360 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 17:23:26', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:39.361 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 76}
+2025-02-23 20:15:39.625 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:39.627 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 54.", 'timestamp': '2025-02-23 17:23:31', 'category': 'Sports', 'Review Score': 54, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:39.628 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 54}
+2025-02-23 20:15:39.888 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:39.889 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 75.", 'timestamp': '2025-02-23 17:23:36', 'category': 'Horror', 'Review Score': 75, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:39.890 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 75}
+2025-02-23 20:15:40.153 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:40.154 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 54.", 'timestamp': '2025-02-23 17:23:41', 'category': 'FPS', 'Review Score': 54, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:40.155 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 54}
+2025-02-23 20:15:40.421 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:40.422 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 58.", 'timestamp': '2025-02-23 17:23:46', 'category': 'RPG', 'Review Score': 58, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:40.423 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 58}
+2025-02-23 20:15:40.687 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:40.687 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 76.", 'timestamp': '2025-02-23 17:23:51', 'category': 'Horror', 'Review Score': 76, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:40.689 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 76}
+2025-02-23 20:15:40.953 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:40.954 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 96.", 'timestamp': '2025-02-23 17:23:56', 'category': 'Strategy', 'Review Score': 96, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:40.956 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 96}
+2025-02-23 20:15:41.234 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:41.235 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 92.", 'timestamp': '2025-02-23 17:24:01', 'category': 'Roguelike', 'Review Score': 92, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:41.237 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 92}
+2025-02-23 20:15:41.502 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:41.503 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 93.", 'timestamp': '2025-02-23 17:24:06', 'category': 'FPS', 'Review Score': 93, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:41.505 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 93}
+2025-02-23 20:15:41.802 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:41.804 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 63.", 'timestamp': '2025-02-23 17:24:11', 'category': 'Horror', 'Review Score': 63, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:41.805 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 63}
+2025-02-23 20:15:42.068 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:42.070 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 55.", 'timestamp': '2025-02-23 17:24:16', 'category': 'Sports', 'Review Score': 55, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:42.071 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 55}
+2025-02-23 20:15:42.348 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:42.349 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 94.", 'timestamp': '2025-02-23 17:24:21', 'category': 'FPS', 'Review Score': 94, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:42.350 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 94}
+2025-02-23 20:15:42.614 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:42.615 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:24:26', 'category': 'FPS', 'Review Score': 91, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:42.616 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 91}
+2025-02-23 20:15:42.883 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:42.884 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 81.", 'timestamp': '2025-02-23 17:24:31', 'category': 'Action', 'Review Score': 81, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:42.886 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 81}
+2025-02-23 20:15:43.163 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:43.164 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 52.", 'timestamp': '2025-02-23 17:24:36', 'category': 'Platformer', 'Review Score': 52, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:43.166 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 52}
+2025-02-23 20:15:43.412 | INFO     | __main__:main:129 - {'message': "I just played a FPS game! I'd give it a score of 79.", 'timestamp': '2025-02-23 20:15:43', 'category': 'FPS', 'Review Score': 79, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:43.414 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a FPS game! I'd give it a score of 79.", 'timestamp': '2025-02-23 20:15:43', 'category': 'FPS', 'Review Score': 79, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:43.416 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a FPS game! I'd give it a score of 79.", 'timestamp': '2025-02-23 20:15:43', 'category': 'FPS', 'Review Score': 79, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:43.443 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:43.444 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 67.", 'timestamp': '2025-02-23 17:24:41', 'category': 'Action', 'Review Score': 67, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:43.444 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 67}
+2025-02-23 20:15:43.708 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:43.708 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 59.", 'timestamp': '2025-02-23 17:24:46', 'category': 'FPS', 'Review Score': 59, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:43.710 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 59}
+2025-02-23 20:15:43.974 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:43.975 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:24:51', 'category': 'RPG', 'Review Score': 91, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:43.976 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 91}
+2025-02-23 20:15:44.255 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:44.256 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 51.", 'timestamp': '2025-02-23 17:24:56', 'category': 'Strategy', 'Review Score': 51, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:44.258 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 51}
+2025-02-23 20:15:44.536 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:44.536 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 85.", 'timestamp': '2025-02-23 17:25:01', 'category': 'RPG', 'Review Score': 85, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:44.538 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 85}
+2025-02-23 20:15:44.817 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:44.818 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 73.", 'timestamp': '2025-02-23 17:25:06', 'category': 'Action', 'Review Score': 73, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:44.819 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 73}
+2025-02-23 20:15:45.116 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:45.117 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 51.", 'timestamp': '2025-02-23 17:25:11', 'category': 'Roguelike', 'Review Score': 51, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:45.119 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 51}
+2025-02-23 20:15:45.384 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:45.385 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 83.", 'timestamp': '2025-02-23 17:25:16', 'category': 'FPS', 'Review Score': 83, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:45.387 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 83}
+2025-02-23 20:15:45.654 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:45.656 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 69.", 'timestamp': '2025-02-23 17:25:21', 'category': 'Horror', 'Review Score': 69, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:45.657 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 69}
+2025-02-23 20:15:45.921 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:45.922 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 59.", 'timestamp': '2025-02-23 17:25:26', 'category': 'Mobile', 'Review Score': 59, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:45.923 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 59}
+2025-02-23 20:15:46.202 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:46.203 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 97.", 'timestamp': '2025-02-23 17:25:31', 'category': 'MMO', 'Review Score': 97, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:46.205 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 97}
+2025-02-23 20:15:46.484 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:46.484 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 65.", 'timestamp': '2025-02-23 17:25:36', 'category': 'Horror', 'Review Score': 65, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:46.485 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 65}
+2025-02-23 20:15:46.749 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:46.749 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 65.", 'timestamp': '2025-02-23 17:25:41', 'category': 'Roguelike', 'Review Score': 65, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:46.750 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 65}
+2025-02-23 20:15:47.033 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:47.034 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 69.", 'timestamp': '2025-02-23 17:25:46', 'category': 'Sports', 'Review Score': 69, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:47.034 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 69}
+2025-02-23 20:15:47.314 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:47.314 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 77.", 'timestamp': '2025-02-23 17:25:51', 'category': 'Action', 'Review Score': 77, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:47.315 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 77}
+2025-02-23 20:15:47.577 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:47.579 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 58.", 'timestamp': '2025-02-23 17:25:56', 'category': 'Strategy', 'Review Score': 58, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:47.580 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 58}
+2025-02-23 20:15:47.844 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:47.845 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 77.", 'timestamp': '2025-02-23 17:26:01', 'category': 'Action', 'Review Score': 77, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:47.846 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 77}
+2025-02-23 20:15:48.125 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:48.126 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 95.", 'timestamp': '2025-02-23 17:26:06', 'category': 'Horror', 'Review Score': 95, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:48.128 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 95}
+2025-02-23 20:15:48.418 | INFO     | __main__:main:129 - {'message': "I just played a FPS game! I'd give it a score of 73.", 'timestamp': '2025-02-23 20:15:48', 'category': 'FPS', 'Review Score': 73, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:48.420 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a FPS game! I'd give it a score of 73.", 'timestamp': '2025-02-23 20:15:48', 'category': 'FPS', 'Review Score': 73, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:48.422 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a FPS game! I'd give it a score of 73.", 'timestamp': '2025-02-23 20:15:48', 'category': 'FPS', 'Review Score': 73, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:48.452 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:48.454 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:26:11', 'category': 'FPS', 'Review Score': 91, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:48.455 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 91}
+2025-02-23 20:15:48.720 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:48.722 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 85.", 'timestamp': '2025-02-23 17:26:16', 'category': 'MMO', 'Review Score': 85, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:48.723 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 85}
+2025-02-23 20:15:49.001 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:49.002 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 97.", 'timestamp': '2025-02-23 17:26:21', 'category': 'Platformer', 'Review Score': 97, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:49.003 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 97}
+2025-02-23 20:15:49.283 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:49.283 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:26:26', 'category': 'FPS', 'Review Score': 91, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:49.284 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 91}
+2025-02-23 20:15:49.564 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:49.566 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 57.", 'timestamp': '2025-02-23 17:26:31', 'category': 'Roguelike', 'Review Score': 57, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:49.567 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 57}
+2025-02-23 20:15:49.844 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:49.845 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 86.", 'timestamp': '2025-02-23 17:26:36', 'category': 'FPS', 'Review Score': 86, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:49.846 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 86}
+2025-02-23 20:15:50.125 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:50.126 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 84.", 'timestamp': '2025-02-23 17:26:41', 'category': 'Strategy', 'Review Score': 84, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:50.127 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 84}
+2025-02-23 20:15:50.409 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:50.412 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 74.", 'timestamp': '2025-02-23 17:26:46', 'category': 'Strategy', 'Review Score': 74, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:50.413 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 74}
+2025-02-23 20:15:50.692 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:50.693 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 73.", 'timestamp': '2025-02-23 17:26:51', 'category': 'Horror', 'Review Score': 73, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:50.694 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 73}
+2025-02-23 20:15:50.974 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:50.975 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 71.", 'timestamp': '2025-02-23 17:26:56', 'category': 'Horror', 'Review Score': 71, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:50.976 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 71}
+2025-02-23 20:15:51.257 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:51.258 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 77.", 'timestamp': '2025-02-23 17:27:01', 'category': 'Horror', 'Review Score': 77, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:51.259 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 77}
+2025-02-23 20:15:51.537 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:51.537 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 70.", 'timestamp': '2025-02-23 17:27:06', 'category': 'Mobile', 'Review Score': 70, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:51.537 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 70}
+2025-02-23 20:15:51.835 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:51.835 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 67.", 'timestamp': '2025-02-23 17:27:11', 'category': 'MMO', 'Review Score': 67, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:51.836 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 67}
+2025-02-23 20:15:52.118 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:52.118 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 74.", 'timestamp': '2025-02-23 17:27:16', 'category': 'Sports', 'Review Score': 74, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:52.119 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 74}
+2025-02-23 20:15:52.385 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:52.386 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 60.", 'timestamp': '2025-02-23 17:27:21', 'category': 'Platformer', 'Review Score': 60, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:52.386 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 60}
+2025-02-23 20:15:52.651 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:52.651 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 88.", 'timestamp': '2025-02-23 17:27:26', 'category': 'FPS', 'Review Score': 88, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:52.652 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 88}
+2025-02-23 20:15:52.915 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:52.916 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 87.", 'timestamp': '2025-02-23 17:27:31', 'category': 'Platformer', 'Review Score': 87, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:52.917 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 87}
+2025-02-23 20:15:53.198 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:53.198 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 52.", 'timestamp': '2025-02-23 17:27:36', 'category': 'Strategy', 'Review Score': 52, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:53.199 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 52}
+2025-02-23 20:15:53.423 | INFO     | __main__:main:129 - {'message': "I just played a Mobile game! I'd give it a score of 53.", 'timestamp': '2025-02-23 20:15:53', 'category': 'Mobile', 'Review Score': 53, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:53.423 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Mobile game! I'd give it a score of 53.", 'timestamp': '2025-02-23 20:15:53', 'category': 'Mobile', 'Review Score': 53, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:53.425 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Mobile game! I'd give it a score of 53.", 'timestamp': '2025-02-23 20:15:53', 'category': 'Mobile', 'Review Score': 53, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:53.494 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:53.495 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 87.", 'timestamp': '2025-02-23 17:27:41', 'category': 'RPG', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:53.496 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 87}
+2025-02-23 20:15:53.775 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:53.775 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 91.", 'timestamp': '2025-02-23 17:27:46', 'category': 'Mobile', 'Review Score': 91, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:53.776 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 91}
+2025-02-23 20:15:54.071 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:54.072 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 87.", 'timestamp': '2025-02-23 17:27:51', 'category': 'Mobile', 'Review Score': 87, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:15:54.072 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 87}
+2025-02-23 20:15:54.354 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:54.355 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 99.", 'timestamp': '2025-02-23 17:27:56', 'category': 'Horror', 'Review Score': 99, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:54.355 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 99}
+2025-02-23 20:15:54.636 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:54.637 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 86.", 'timestamp': '2025-02-23 17:28:01', 'category': 'Roguelike', 'Review Score': 86, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:54.638 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 86}
+2025-02-23 20:15:54.899 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:54.900 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 69.", 'timestamp': '2025-02-23 17:28:06', 'category': 'FPS', 'Review Score': 69, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:54.901 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 69}
+2025-02-23 20:15:55.211 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:55.212 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 57.", 'timestamp': '2025-02-23 17:28:11', 'category': 'FPS', 'Review Score': 57, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:55.213 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 57}
+2025-02-23 20:15:55.490 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:55.491 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 54.", 'timestamp': '2025-02-23 17:28:16', 'category': 'Roguelike', 'Review Score': 54, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:55.493 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 54}
+2025-02-23 20:15:55.770 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:55.771 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Sports game! I'd give it a score of 76.", 'timestamp': '2025-02-23 17:28:21', 'category': 'Sports', 'Review Score': 76, 'keyword_mentioned': 'S', 'message_length': 55}
+2025-02-23 20:15:55.772 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Sports', 'review_score': 76}
+2025-02-23 20:15:56.051 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:56.052 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 89.", 'timestamp': '2025-02-23 17:28:26', 'category': 'FPS', 'Review Score': 89, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:56.054 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 89}
+2025-02-23 20:15:56.331 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:56.332 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 62.", 'timestamp': '2025-02-23 17:28:32', 'category': 'Roguelike', 'Review Score': 62, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:56.333 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 62}
+2025-02-23 20:15:56.614 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:56.615 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 71.", 'timestamp': '2025-02-23 17:28:37', 'category': 'MMO', 'Review Score': 71, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:56.616 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 71}
+2025-02-23 20:15:56.893 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:56.894 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 57.", 'timestamp': '2025-02-23 17:28:42', 'category': 'RPG', 'Review Score': 57, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:56.895 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 57}
+2025-02-23 20:15:57.177 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:57.178 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 89.", 'timestamp': '2025-02-23 17:28:47', 'category': 'FPS', 'Review Score': 89, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:57.179 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 89}
+2025-02-23 20:15:57.460 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:57.460 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 95.", 'timestamp': '2025-02-23 17:28:52', 'category': 'RPG', 'Review Score': 95, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:15:57.461 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 95}
+2025-02-23 20:15:57.727 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:57.727 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Strategy game! I'd give it a score of 59.", 'timestamp': '2025-02-23 17:28:57', 'category': 'Strategy', 'Review Score': 59, 'keyword_mentioned': 'S', 'message_length': 57}
+2025-02-23 20:15:57.727 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Strategy', 'review_score': 59}
+2025-02-23 20:15:57.994 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:57.995 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 62.", 'timestamp': '2025-02-23 17:29:02', 'category': 'Platformer', 'Review Score': 62, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:57.995 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 62}
+2025-02-23 20:15:58.275 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:58.275 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 83.", 'timestamp': '2025-02-23 17:29:07', 'category': 'Roguelike', 'Review Score': 83, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:15:58.276 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 83}
+2025-02-23 20:15:58.426 | INFO     | __main__:main:129 - {'message': "I just played a Horror game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:58', 'category': 'Horror', 'Review Score': 72, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:58.427 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Horror game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:58', 'category': 'Horror', 'Review Score': 72, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:58.428 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Horror game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:58', 'category': 'Horror', 'Review Score': 72, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:15:58.602 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:58.797 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 66.", 'timestamp': '2025-02-23 17:29:12', 'category': 'Action', 'Review Score': 66, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:58.799 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 66}
+2025-02-23 20:15:59.070 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:59.071 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 82.", 'timestamp': '2025-02-23 17:29:17', 'category': 'Action', 'Review Score': 82, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:15:59.073 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 82}
+2025-02-23 20:15:59.351 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:59.353 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 77.", 'timestamp': '2025-02-23 17:29:22', 'category': 'MMO', 'Review Score': 77, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:15:59.355 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 77}
+2025-02-23 20:15:59.629 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:59.629 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 53.", 'timestamp': '2025-02-23 17:29:27', 'category': 'FPS', 'Review Score': 53, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:15:59.631 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 53}
+2025-02-23 20:15:59.928 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:15:59.930 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Platformer game! I'd give it a score of 96.", 'timestamp': '2025-02-23 17:29:32', 'category': 'Platformer', 'Review Score': 96, 'keyword_mentioned': 'P', 'message_length': 59}
+2025-02-23 20:15:59.931 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Platformer', 'review_score': 96}
+2025-02-23 20:16:00.211 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:00.211 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 98.", 'timestamp': '2025-02-23 17:29:37', 'category': 'Roguelike', 'Review Score': 98, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:00.212 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 98}
+2025-02-23 20:16:00.491 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:00.491 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 53.", 'timestamp': '2025-02-23 17:29:42', 'category': 'FPS', 'Review Score': 53, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:16:00.492 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 53}
+2025-02-23 20:16:00.771 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:00.772 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 63.", 'timestamp': '2025-02-23 17:29:47', 'category': 'FPS', 'Review Score': 63, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:16:00.774 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 63}
+2025-02-23 20:16:01.054 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:01.055 | INFO     | __main__:process_message:28 -    message={'message': "I just played a RPG game! I'd give it a score of 66.", 'timestamp': '2025-02-23 20:15:18', 'category': 'RPG', 'Review Score': 66, 'keyword_mentioned': 'R', 'message_length': 52}
+2025-02-23 20:16:01.055 | INFO     | __main__:process_message:34 - Processed message: {'category': 'RPG', 'review_score': 66}
+2025-02-23 20:16:01.334 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:01.336 | INFO     | __main__:process_message:28 -    message={'message': "I just played a MMO game! I'd give it a score of 55.", 'timestamp': '2025-02-23 20:15:23', 'category': 'MMO', 'Review Score': 55, 'keyword_mentioned': 'M', 'message_length': 52}
+2025-02-23 20:16:01.337 | INFO     | __main__:process_message:34 - Processed message: {'category': 'MMO', 'review_score': 55}
+2025-02-23 20:16:01.616 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:01.617 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:28', 'category': 'Roguelike', 'Review Score': 72, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:01.618 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 72}
+2025-02-23 20:16:01.902 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:01.903 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 88.", 'timestamp': '2025-02-23 20:15:33', 'category': 'Mobile', 'Review Score': 88, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:16:01.904 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 88}
+2025-02-23 20:16:02.208 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:02.210 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Action game! I'd give it a score of 95.", 'timestamp': '2025-02-23 20:15:38', 'category': 'Action', 'Review Score': 95, 'keyword_mentioned': 'A', 'message_length': 55}
+2025-02-23 20:16:02.212 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Action', 'review_score': 95}
+2025-02-23 20:16:02.487 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:02.489 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 79.", 'timestamp': '2025-02-23 20:15:43', 'category': 'FPS', 'Review Score': 79, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:16:02.490 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 79}
+2025-02-23 20:16:02.784 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:02.785 | INFO     | __main__:process_message:28 -    message={'message': "I just played a FPS game! I'd give it a score of 73.", 'timestamp': '2025-02-23 20:15:48', 'category': 'FPS', 'Review Score': 73, 'keyword_mentioned': 'F', 'message_length': 52}
+2025-02-23 20:16:02.787 | INFO     | __main__:process_message:34 - Processed message: {'category': 'FPS', 'review_score': 73}
+2025-02-23 20:16:03.061 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:03.062 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Mobile game! I'd give it a score of 53.", 'timestamp': '2025-02-23 20:15:53', 'category': 'Mobile', 'Review Score': 53, 'keyword_mentioned': 'M', 'message_length': 55}
+2025-02-23 20:16:03.064 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Mobile', 'review_score': 53}
+2025-02-23 20:16:03.345 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:03.346 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Horror game! I'd give it a score of 72.", 'timestamp': '2025-02-23 20:15:58', 'category': 'Horror', 'Review Score': 72, 'keyword_mentioned': 'H', 'message_length': 55}
+2025-02-23 20:16:03.347 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Horror', 'review_score': 72}
+2025-02-23 20:16:03.429 | INFO     | __main__:main:129 - {'message': "I just played a Roguelike game! I'd give it a score of 87.", 'timestamp': '2025-02-23 20:16:03', 'category': 'Roguelike', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:03.430 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Roguelike game! I'd give it a score of 87.", 'timestamp': '2025-02-23 20:16:03', 'category': 'Roguelike', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:03.432 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Roguelike game! I'd give it a score of 87.", 'timestamp': '2025-02-23 20:16:03', 'category': 'Roguelike', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:03.635 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:03.636 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 87.", 'timestamp': '2025-02-23 20:16:03', 'category': 'Roguelike', 'Review Score': 87, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:03.637 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 87}
+2025-02-23 20:16:08.432 | INFO     | __main__:main:129 - {'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 20:16:08', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:08.434 | INFO     | __main__:main:133 - STEP 4a Wrote message to file: {'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 20:16:08', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:08.437 | INFO     | __main__:main:138 - STEP 4b Sent message to Kafka topic 'buzzline_json': {'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 20:16:08', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:08.440 | INFO     | __main__:process_message:27 - Called process_message() with:
+2025-02-23 20:16:08.441 | INFO     | __main__:process_message:28 -    message={'message': "I just played a Roguelike game! I'd give it a score of 76.", 'timestamp': '2025-02-23 20:16:08', 'category': 'Roguelike', 'Review Score': 76, 'keyword_mentioned': 'R', 'message_length': 58}
+2025-02-23 20:16:08.441 | INFO     | __main__:process_message:34 - Processed message: {'category': 'Roguelike', 'review_score': 76}
