@@ -87,7 +87,7 @@ py -m consumers.consumer_Sean
 
 ## Visualization
 
-![Visualization Screenshot](data/Visualization.png)
+
 
 
 ## Dynamic Visualization
