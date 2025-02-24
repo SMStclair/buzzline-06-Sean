@@ -90,16 +90,6 @@ py -m consumers.consumer_Sean
 ![Visualization Screenshot](data/Visualization.png)
 
 
-### 1️⃣ Start Zookeeper and Kafka (if not already running)
-```sh
-# Start Zookeeper
-zookeeper-server-start.sh config/zookeeper.properties &
-
-# Start Kafka Broker
-kafka-server-start.sh config/server.properties &
-```
-
-
 ## Dynamic Visualization
 The consumer continuously updates the visualization with:
 
