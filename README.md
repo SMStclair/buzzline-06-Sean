@@ -51,7 +51,9 @@ This approach is interesting because it allows **live analysis of game reviews**
 Before running the scripts, set up a virtual environment:
 ```powershell
 # Create virtual environment
-py -m venv .venv
+Create a local virtual environment .venv
+py -3.11 -m venv .venv (for windows)
+python3 -3.11 -m venv .venv (Mac)
 
 # Activate virtual environment (Windows)
 venv\Scripts\activate
@@ -60,7 +62,8 @@ venv\Scripts\activate
 ### Install Required Dependencies
 Ensure all necessary libraries are installed:
 ```powershell
-pip install -r requirements.txt
+py -m pip install --upgrade pip setuptools wheel (windows)
+py -m pip install --upgrade -r requirements.txt (windows)
 ```
 ### Start Zookeeper and Kafka (if not already running)
 ```sh
