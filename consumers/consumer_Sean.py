@@ -58,32 +58,32 @@ def update_genre_scores(genre_scores, genre_counts, message):
 # Function to plot the bar chart of average review scores + inset pie chart
 def plot_average_scores(genre_scores, genre_counts):
     """
-    Plot a bar chart showing the average review scores for each genre.
-    Also adds a pie chart inset to show the proportion of messages per genre.
+    Plot separate figures for:
+    1. Bar chart showing the average review scores for each genre.
+    2. Pie chart showing the proportion of messages per genre.
     """
     genres = list(genre_scores.keys())
     average_scores = [data["total_score"] / data["count"] for data in genre_scores.values()]
 
-    plt.clf()  # Clear the current figure
-
-    # Bar Chart: Average Review Scores
-    ax1 = plt.gca()
-    ax1.bar(genres, average_scores, color=plt.cm.plasma(np.linspace(0, 1, len(genres))))
-    ax1.set_xlabel('Genres')
-    ax1.set_ylabel('Average Review Score')
-    ax1.set_title('Average Review Scores by Genre')
-    ax1.set_xticklabels(genres, rotation=45, ha="right")
-
-    # Pie Chart: Message Distribution by Genre
-    if genre_counts:
-        ax_inset = inset_axes(ax1, width="30%", height="30%", loc="upper right")
-        sizes = [count / sum(genre_counts.values()) * 100 for count in genre_counts.values()]
-        ax_inset.pie(sizes, labels=genre_counts.keys(), autopct='%1.1f%%', startangle=140)
-        ax_inset.set_title("Genre % Distribution", fontsize=8)
-
+    # Create separate figures for each chart
+    plt.figure(1)  # Bar Chart Figure
+    plt.clf()
+    plt.bar(genres, average_scores, color=plt.cm.plasma(np.linspace(0, 1, len(genres))))
+    plt.xlabel('Genres')
+    plt.ylabel('Average Review Score')
+    plt.title('Average Review Scores by Genre')
+    plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
-    plt.draw()  # Redraw the plot
-    plt.pause(0.1)  # Pause to update the plot (without blocking the loop)
+    
+    plt.figure(2)  # Pie Chart Figure
+    plt.clf()
+    if genre_counts:
+        sizes = [count / sum(genre_counts.values()) * 100 for count in genre_counts.values()]
+        plt.pie(sizes, labels=genre_counts.keys(), autopct='%1.1f%%', startangle=140)
+        plt.title("Genre % Distribution")
+
+    plt.draw()  # Redraw both figures
+    plt.pause(0.1)  # Pause to update plots (non-blocking)
 
 # Consume Messages from Kafka Topic
 def consume_messages_from_kafka(
